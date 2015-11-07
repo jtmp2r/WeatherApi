@@ -20,7 +20,7 @@ requirejs.config({
   }
 });
 define(["jquery", "validate"], function($, validate) {
-  $(document).ready(function(){
-    validate.zipcode();
-  });
+
+  $("#zipSubmit").hide();
+  validate.zipcode();
 });
