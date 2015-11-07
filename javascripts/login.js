@@ -1,26 +1,24 @@
-define(["jquery", "lodash", "firebase"], function($, lodash, Firebase) {
+define(["jquery", ], function($) {
 
-	return {
-   var newUser: function() {
-    var	newUserEm = $("#").val();
-    var newUserPas = $("#").val();
+	var ref = new Firebase(https://yoreweather.firebaseio.com/)
 
-    var ref = new Firebase(https://yoreweather.firebaseio.com/)
+  return {
+  	loginUser: function() {
+  		newEmail = $("#").val();
+  		newPassword = $("#").val();
 
-    ref.createUser ({
-    	email: newUserEm,
-    	password: newUserPas
-    }, function(error, userData) {
-    	if (error){
-    		console.log("Error creating user ", error);
-    	} else {
-    		console.log("YOu have been born " userData.uid)
-    	}
-    }
-    ); // end of createUser
-
-    }
-
-	}
+  	ref.authWithPassword({
+  		email: newEmail,
+  		password: newPassword
+  	}, function(error, authData) {
+  		if (error) {
+  			console.log("Didn't work", error)
+		}, else {
+			  console.log("Authenticated successfully with payload:", authData);
+		}
+  	}
+  	);
+   }
+  }  //return ending
 	
 });
