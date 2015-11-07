@@ -25,6 +25,15 @@ define(function(require) {
         deferred.reject(error);
       });
       return deferred.promise;
-    } // end localWeather method
+    }, // end localWeather method
+    threeDay : function(){
+      console.log("3 day forecast");
+    },
+    sevenDay : function(){
+      console.log("sevenDay forecast");
+    },
+    saveDay : function(){
+      console.log("Save this days weather");
+    }
   }; //end return statement
 });
