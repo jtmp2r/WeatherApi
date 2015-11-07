@@ -14,11 +14,11 @@ define(function(require) {
           console.log("valid 5 digi code baby!");
           $("#zipSubmit").attr("class", "col-sm-4 btn btn-success");
           $("#zipSubmit").show("fast");
-        }
+        } // end else statement
 
       });
-    }
-  };
+    } //end zipcode method
+  }; //end return statement
 
 
 });

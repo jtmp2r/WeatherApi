@@ -19,8 +19,14 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "validate"], function($, validate) {
-  $(document).ready(function(){
-    validate.zipcode();
+define(["jquery", "firebase", "q", "validate", "weatherData"], function($, firebase, q, validate, weatherData) {
+
+  $("#zipSubmit").hide();
+  var ref = new Firebase("https://yoreweather.firebaseio.com");
+  validate.zipcode();
+
+  $("#zipSubmit").on("click", function(){
+    weatherData.localWeather();
   });
+
 });
