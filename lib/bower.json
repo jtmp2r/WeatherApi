@@ -1,7 +1,7 @@
 {
-  "name": "movie-viewer",
+  "name": "WeatherApi",
   "version": "0.0.0",
-  "homepage": "https://github.com/jonathanhinton/movie-viewer",
+  "homepage": "https://github.com/jtmp2r/WeatherApi",
   "authors": [
     "jonathanhinton <hintonjonathan@gmail.com>"
   ],
