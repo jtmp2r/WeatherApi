@@ -21,6 +21,8 @@ requirejs.config({
 });
 define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, _, firebase, Register, login, q, handlebars, validate, weatherData, weatherHBS) {
   var ref = new Firebase("https://yoreweather.firebaseio.com");
+    
+    $("#mainPage").hide();
 
     $(document).on("click", "#register", function(e) {
       e.preventDefault();
@@ -30,6 +32,13 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
         $("#loginContent").html(loginTemp);
     });
   });
+
+    $(document).on("click", "#weathLane", function(e) {
+      e.preventDefault();
+      login.loginUser();
+      $("#loginPage").hide();
+      $("#mainPage").show();
+    })
 
   $("#zipSubmit").hide();
   validate.zipcode();
@@ -54,4 +63,4 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
 });
 
 
- });
+ 
