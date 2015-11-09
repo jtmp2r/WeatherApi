@@ -19,14 +19,27 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "firebase", "q", "validate", "weatherData"], function($, firebase, q, validate, weatherData) {
+define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, firebase, q, handlebars, validate, weatherData, weatherHBS) {
 
   $("#zipSubmit").hide();
   var ref = new Firebase("https://yoreweather.firebaseio.com");
   validate.zipcode();
 
   $("#zipSubmit").on("click", function(){
-    weatherData.localWeather();
+    weatherData.localWeather()
+    .then(function(weather){
+      var data = {
+        conditions : weather.weather[0].description,
+        temp : weather.main.temp,
+        cityName : weather.name,
+        cityId : weather.id,
+        pressure : weather.main.pressure,
+        windSpeed : weather.wind.speed,
+        windDirection : weather.wind.deg
+      };
+      console.log("data object", data);
+      $("#output").html(weatherHBS({weatherDisplay : data}));
+    });
   });
 
 });

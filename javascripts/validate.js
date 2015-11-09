@@ -11,7 +11,7 @@ define(function(require) {
           console.log("not valid bro");
           $("#zipSubmit").hide("fast");
         } else {
-          console.log("valid 5 digi code baby!");
+          console.log("valid 5 digit code baby!");
           $("#zipSubmit").attr("class", "col-sm-4 btn btn-success");
           $("#zipSubmit").show("fast");
         } // end else statement

@@ -4,6 +4,9 @@ define(function(require) {
   var firebase = require("firebase");
   var loginRef = new Firebase("https://yoreweather.firebaseio.com/");
   var userAuth = loginRef.getAuth();
+  var deferred = q.defer();
+  var apiKey = "9799d2b264499cc589cdc477b68c6e7c";
+  var zip = $("#zipCodeForm").val();
 
   if(userAuth) {
     console.log("Yore Legit");
@@ -11,16 +14,13 @@ define(function(require) {
 
   return {
     localWeather : function(){
-      var deferred = q.defer();
-      var apiKey = "9799d2b264499cc589cdc477b68c6e7c";
-      var zip = $("#zipCodeForm").val();
 
       $.ajax({
         type : 'GET',
-        url : "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + apiKey
+        url : "http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&units=imperial&appid=" + apiKey
       }).done(function(weather){
-        weather = JSON.stringify(weather);
         console.log("weather", weather);
+        deferred.resolve(weather);
       }).fail(function(xhr, status, error){
         deferred.reject(error);
       });
