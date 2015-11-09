@@ -20,18 +20,22 @@
 	  </div>
 	  <button type="button" class="btn btn-danger" next="next_page" id="register">She's a fickle lady</button>
 		  </form>
-	</section>	  
-   
+	</section>
+
   <div id="loginContent"></div>
-	                       
+
 	  <section class="new_page" id="mainPage">
     <div class="container">
+  <!-- ========== Zipcode submit ========== -->
+    <div id="zipForm" class="container">
       <div class="row">
           <label class="col-sm-4 control-label">Postal code</label>
-            <input id="zipCodeForm" type="number" class="col-sm-4 form-control" name="postalCode" placeholder="Please Enter Valid Zipcode" />
+            <input id="zipCodeForm" type="number" class="col-sm-4 form-control" name="postalCode" placeholder="Please Enter Valid Zipcode" value="37206"/>
             <button id="zipSubmit" class="col-sm-4 btn btn-primary" type="submit">Submit</button>
-      </div>
-    </div>
+      </div> <!-- end row -->
+    </div> <!-- end container -->
+  <!-- ========== Weather Display ========== -->
+    <div id="output"></div>
       <script data-main="/javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
   </body>
 </html>

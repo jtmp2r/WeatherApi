@@ -1,0 +1,26 @@
+
+<div id="{{cityId}}" class="container">
+  <h1>Weather for {{cityName}}</h1>
+  <div class="row">
+    <div class="col-sm-4">
+      <h4>Temperature</h4>
+      <h1>{{temp}}&deg F</h1>
+    </div>
+    <div class="col-sm-6">
+      <div>
+        <p>If you look up you will see {{conditions}}.  Wind is coming at you at {{windSpeed}} miles per hour. From this direction {{windDirection}}&deg</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <button class="btn btn-sm-primary" id="3dayForecast">3 Day Forecast</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-sm-primary" id="7dayForecast">7 Day Forecast</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-sm-primary" id="saveDay">Save Today's Weather</button>
+    </div>
+  </div>
+</div>

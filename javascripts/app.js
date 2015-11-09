@@ -19,29 +19,30 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "validate", "q", "lodash", "hbs", "firebase"],
-  function($, validate, q, lodash, hbs, Firebase) {
 
-    $(document).on("click", "#register", function(e){
-      e.preventDefault();
-      Register.newUser();
-    });
-
-    require(['hbs!../templates/loginPage'], function(temp) {
-      $("#loginContent").html(temp());
-    });
-
+define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, firebase, q, handlebars, validate, weatherData, weatherHBS) {
+  var ref = new Firebase("https://yoreweather.firebaseio.com");
 
   $("#zipSubmit").hide();
   validate.zipcode();
 
-  // $("new_page").click(function() {
-  //   var nextPage = $(this).attr("next");
 
-  //   switch (nextPage) {
-  //     case "#newRegister": break;
-  //     case "#loginPage": break;
-  //     case "#mainPage": break;
-  //   }
+});
+  $("#zipSubmit").on("click", function(){
+    weatherData.localWeather()
+    .then(function(weather){
+      var data = {
+        conditions : weather.weather[0].description,
+        temp : weather.main.temp,
+        cityName : weather.name,
+        cityId : weather.id,
+        pressure : weather.main.pressure,
+        windSpeed : weather.wind.speed,
+        windDirection : weather.wind.deg
+      };
+      console.log("data object", data);
+      $("#output").html(weatherHBS(data));
+    });
+  });
 
 });
