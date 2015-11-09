@@ -1,4 +1,4 @@
-define(["jquery"], function($) {
+define(["jquery", "firebase"], function($, firebase) {
 
 	var ref = new Firebase("https://yoreweather.firebaseio.com/");
 
