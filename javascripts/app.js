@@ -20,9 +20,9 @@ requirejs.config({
   }
 });
 define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, firebase, q, handlebars, validate, weatherData, weatherHBS) {
+  var ref = new Firebase("https://yoreweather.firebaseio.com");
 
   $("#zipSubmit").hide();
-  var ref = new Firebase("https://yoreweather.firebaseio.com");
   validate.zipcode();
 
   $("#zipSubmit").on("click", function(){
@@ -38,7 +38,7 @@ define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../tem
         windDirection : weather.wind.deg
       };
       console.log("data object", data);
-      $("#output").html(weatherHBS({weatherDisplay : data}));
+      $("#output").html(weatherHBS(data));
     });
   });
 
