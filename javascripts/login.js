@@ -4,12 +4,12 @@ define(["jquery"], function($) {
 
   return {
     loginUser: function() {
-      newEmail = $("#").val();
-      newPassword = $("#").val();
+      var userEmail = $("#userName").val();
+      var userPassword = $("#passWord").val();
 
     ref.authWithPassword({
-      email: newEmail,
-      password: newPassword
+      email: userEmail,
+      password: userPassword
     }, function(error, authData) {
         if (error) {
           console.log("Didn't work", error);
@@ -19,5 +19,4 @@ define(["jquery"], function($) {
       });
     } //end loginUser
   };  //return ending
-
 });

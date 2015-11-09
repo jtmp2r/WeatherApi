@@ -2,14 +2,14 @@ define(["jquery", "lodash", "firebase"], function($, lodash, Firebase) {
 
   return {
     newUser : function() {
-      var	newUserEm = $("#").val();
-      var newUserPas = $("#").val();
+      var	newEmail = $("#emailRegister").val();
+      var newPassword = $("#passwordRegister").val();
 
       var ref = new Firebase("https://yoreweather.firebaseio.com/");
 
     ref.createUser ({
-      email: newUserEm,
-      password: newUserPas
+      email: newEmail,
+      password: newPassword
     }, function(error, userData) {
         if (error){
           console.log("Error creating user ", error);

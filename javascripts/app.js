@@ -19,8 +19,29 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "validate"], function($, validate) {
-  $(document).ready(function(){
-    validate.zipcode();
-  });
+define(["jquery", "validate", "q", "lodash", "hbs", "firebase"],
+  function($, validate, q, lodash, hbs, Firebase) {
+
+    $(document).on("click", "#register", function(e){
+      e.preventDefault();
+      Register.newUser();
+    });
+
+    require(['hbs!../templates/loginPage'], function(temp) {
+      $("#loginContent").html(temp());
+    });
+
+
+  $("#zipSubmit").hide();
+  validate.zipcode();
+
+  // $("new_page").click(function() {
+  //   var nextPage = $(this).attr("next");
+
+  //   switch (nextPage) {
+  //     case "#newRegister": break;
+  //     case "#loginPage": break;
+  //     case "#mainPage": break;
+  //   }
+
 });
