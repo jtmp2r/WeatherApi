@@ -19,15 +19,21 @@ requirejs.config({
     }
   }
 });
-
-define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, firebase, q, handlebars, validate, weatherData, weatherHBS) {
+define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, _, firebase, Register, login, q, handlebars, validate, weatherData, weatherHBS) {
   var ref = new Firebase("https://yoreweather.firebaseio.com");
+
+    $(document).on("click", "#register", function(e) {
+      e.preventDefault();
+      Register.newUser();
+      $("#newRegister").hide();
+      require(['hbs!../templates/loginPage'], function(loginTemp) {
+        $("#loginContent").html(loginTemp);
+    });
+  });
 
   $("#zipSubmit").hide();
   validate.zipcode();
 
-
-});
   $("#zipSubmit").on("click", function(){
     weatherData.localWeather()
     .then(function(weather){
@@ -46,3 +52,6 @@ define(["jquery", "firebase", "q", "hbs", "validate", "weatherData", "hbs!../tem
   });
 
 });
+
+
+ });

@@ -1,4 +1,5 @@
-define(["jquery", "lodash", "firebase"], function($, lodash, Firebase) {
+define(["jquery", "lodash", "firebase", "login"], function($, lodash, Firebase, login) {
+  $("#mainPage").hide();
 
   return {
     newUser : function() {
