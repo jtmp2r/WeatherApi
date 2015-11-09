@@ -25,12 +25,12 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
   $("#zipSubmit").hide();
   validate.zipcode();
 
-    $(document).on("click", "#register", function(e) {
-      e.preventDefault();
-      Register.newUser();
-      $("#newRegister").hide();
-      require(['hbs!../templates/loginPage'], function(loginTemp) {
-        $("#loginContent").html(loginTemp);
+  $(document).on("click", "#register", function(e) {
+    e.preventDefault();
+    Register.newUser();
+    $("#newRegister").hide();
+    require(['hbs!../templates/loginPage'], function(loginTemp) {
+      $("#loginContent").html(loginTemp);
     });
   });
 
@@ -50,6 +50,10 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
       console.log("data object", data);
       $("#output").html(weatherHBS(data));
       $("#zipForm").hide();
+    });
+
+    $("#3dayForecast").on("click", function(){
+      var cityId = ;
     });
   });
 
