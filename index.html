@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yore Weather</title>
+    <title>Your Weather</title>
     <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <meta charset="UTF-8">
   </head>
   <body>
+  <section class="new_page" id="newRegister">
+   	<form class="col-xs-8">
+	  <div class="form-group">
+	    <label for="emailRegister">Email address</label>
+	    <input type="email" class="form-control" id="emailRegister" placeholder="Email">
+	  </div>
+	  <div class="form-group">
+	    <label for="passwordRegister">Password</label>
+	    <input type="password" class="form-control" id="passwordRegister" placeholder="Password">
+	  </div>
+	  <button type="button" class="btn btn-danger" next="next_page" id="register">She's a fickle lady</button>
+		  </form>
+	</section>	  
+   
+  <div id="loginContent"></div>
+	                       
+	  <section class="new_page" id="mainPage">
     <div class="container">
       <div class="row">
           <label class="col-sm-4 control-label">Postal code</label>

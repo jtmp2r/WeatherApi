@@ -19,8 +19,26 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "validate"], function($, validate) {
+define(["jquery", "validate", "q", "lodash", "hbs", "firebase"], 
+  function($, validate, q, lodash, hbs, Firebase) {
+  
+  // $(document).ready(function() {
+  //   $("#newRegister").show();
+  // })
+  
+
 
   $("#zipSubmit").hide();
   validate.zipcode();
+
+  // $("new_page").click(function() {
+  //   var nextPage = $(this).attr("next");
+
+  //   switch (nextPage) {
+  //     case "#newRegister": break;
+  //     case "#loginPage": break;
+  //     case "#mainPage": break;
+  //   }
+
+  })
 });
