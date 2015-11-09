@@ -1,34 +1,31 @@
-define(["jquery", "lodash", "firebase"], function($, lodash, Firebase) {
+define(["jquery", "lodash", "firebase", "login"], function($, lodash, Firebase, login) {
+  $("#mainPage").hide();
 
   return {
-    var newUser: function() {
+    newUser: function() {
+
     var	newEmail = $("#emailRegister").val();
     var newPassword = $("#passwordRegister").val();
 
-    var ref = new Firebase("https://yoreweather.firebaseio.com/")
+    var ref = new Firebase("https://yoreweather.firebaseio.com/");
 
     ref.createUser ({
     	email: newEmail,
     	password: newPassword
     }, function(error, userData) {
-    	if (error){
+    	if (error) {
     		console.log("Error creating user ", error);
     	} else {
-    		console.log("You have been born " userData.uid)
+    		console.log("You have been born ", userData.uid);
     	}
     }
     ); 
 
-    require(['hbs!../templates/loginPage'], function(temp) {
-      $("#loginContent").html(temp());
+    require(['hbs!../templates/loginPage'], function() {
+      $("#loginContent").html();
 
 
-      $(document).on("click", "#register" function(e) {
-        e.preventDefault();
-        user.loginPage;
-
-      })
-    }  
+    })  
   }
 
   }

@@ -13,12 +13,16 @@ define(["jquery", "firebase"], function($, Firebase) {
   	}, function(error, authData) {
   		if (error) {
   			console.log("Didn't work", error)
-		}, else {
+		} else {
 			  console.log("Authenticated successfully with payload:", authData);
 		   }
   	   } 
+
+
   	);
     }
+
+
   }  //return ending
 	
 });

@@ -19,26 +19,24 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "validate", "q", "lodash", "hbs", "firebase"], 
-  function($, validate, q, lodash, hbs, Firebase) {
-  
-  // $(document).ready(function() {
-  //   $("#newRegister").show();
-  // })
+define(["jquery", "validate", "q", "lodash", "hbs", "firebase", "Register", "login"], 
+  function($, validate, q, lodash, hbs, Firebase, Register, login) {
   
 
 
   $("#zipSubmit").hide();
   validate.zipcode();
 
-  // $("new_page").click(function() {
-  //   var nextPage = $(this).attr("next");
 
-  //   switch (nextPage) {
-  //     case "#newRegister": break;
-  //     case "#loginPage": break;
-  //     case "#mainPage": break;
-  //   }
+    $(document).on("click", "#register", function(e) {
+      e.preventDefault();
+      Register.newUser();
+      $("#newRegister").hide();
+      require(['hbs!../templates/loginPage'], function(loginTemp) {
+        $("#loginContent").html(loginTemp);
+    });  
 
   })
-});
+
+
+ });
