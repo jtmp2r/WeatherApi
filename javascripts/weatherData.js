@@ -13,7 +13,6 @@ define(function(require) {
 
   return {
     localWeather : function(){
-
       $.ajax({
         type : 'GET',
         url : "http://api.openweathermap.org/data/2.5/weather?zip=" + $('#zipCodeForm').val() + ",us&units=imperial&appid=" + apiKey
@@ -38,8 +37,18 @@ define(function(require) {
       });
       return deferred.promise;
     },
-    sevenDay : function(){
+    sevenDay : function(cityId){
       console.log("sevenDay forecast");
+      $.ajax({
+        type : 'GET',
+        url : "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + cityId + "&cnt=7&units=imperial&appid=" + apiKey
+      }).done(function(threeDay){
+        console.log("threeDay", threeDay);
+        deferred.resolve(threeDay);
+      }).fail(function(xhr, status, error){
+        deferred.reject(error);
+      });
+      return deferred.promise;
     },
     saveDay : function(){
       console.log("Save this days weather");

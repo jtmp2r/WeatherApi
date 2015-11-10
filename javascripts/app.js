@@ -61,14 +61,14 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
       $("#output").html(weatherHBS(data));
       $("#zipForm").hide();
     });
+  });
 
-    $(document).on("click", "#threeDayForecast", function(){
-      var cityId = $(this).parent().parent().parent().attr("id");
-      console.log("cityId", cityId);
-      weatherData.threeDay(cityId)
-      .then(function(threeDayForecast){
-        console.log("threeDayForecast", threeDayForecast);
-      });
+  $(document).on("click", "#threeDayForecast", function(){
+    var cityId = $(this).parent().parent().parent().attr("id");
+    console.log("cityId", cityId);
+    weatherData.threeDay(cityId)
+    .then(function(threeDayForecast){
+      console.log("threeDayForecast", threeDayForecast);
     });
   });
 });
