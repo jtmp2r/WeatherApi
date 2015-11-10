@@ -62,8 +62,13 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
       $("#zipForm").hide();
     });
 
-    $("#3dayForecast").on("click", function(){
-      var cityId = ;
+    $(document).on("click", "#threeDayForecast", function(){
+      var cityId = $(this).parent().parent().parent().attr("id");
+      console.log("cityId", cityId);
+      weatherData.threeDay(cityId)
+      .then(function(threeDayForecast){
+        console.log("threeDayForecast", threeDayForecast);
+      });
     });
   });
 });
