@@ -42,9 +42,9 @@ define(function(require) {
       $.ajax({
         type : 'GET',
         url : "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + cityId + "&cnt=7&units=imperial&appid=" + apiKey
-      }).done(function(threeDay){
-        console.log("threeDay", threeDay);
-        deferred.resolve(threeDay);
+      }).done(function(sevenDay){
+        console.log("sevenDay", sevenDay);
+        deferred.resolve(sevenDay);
       }).fail(function(xhr, status, error){
         deferred.reject(error);
       });

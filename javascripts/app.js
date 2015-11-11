@@ -19,7 +19,7 @@ requirejs.config({
     }
   }
 });
-define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay"], function($, _, firebase, Register, login, q, handlebars, validate, weatherData, weatherHBS) {
+define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "validate", "weatherData", "hbs!../templates/weatherDisplay", "hbs!../templates/forecast"], function($, _, firebase, Register, login, q, handlebars, validate, weatherData, weatherHBS, forecastHbs) {
   var ref = new Firebase("https://yoreweather.firebaseio.com");
 
   $("#mainPage").hide();
@@ -67,8 +67,11 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
     var cityId = $(this).parent().parent().parent().attr("id");
     console.log("cityId", cityId);
     weatherData.threeDay(cityId)
-    .then(function(threeDayForecast){
-      console.log("threeDayForecast", threeDayForecast);
+    .then(function(threeDay){
+      console.log("threeDay", threeDay);
+      var threeFore = threeDay.list;
+      console.log("threeFore", threeFore);
+      $("#forecast").html(forecastHbs({forecast : threeFore}));
     });
   });
 });
