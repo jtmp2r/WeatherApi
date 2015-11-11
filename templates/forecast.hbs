@@ -1,15 +1,15 @@
 {{#each forecast}}
 <div  class="container">
-  <h1>Weather for {{cityName}}</h1>
+  <h3>Your Forecast</h3>
   <div class="forecastDisplay row">
     <div class="col-sm-4">
       <h4>Temperature</h4>
       <h1>High {{temp.max}}&deg F</h1>
       <h1>Low {{temp.min}}&deg F</h1>
     </div>
-    <div class="col-sm-6">
+    <div class="conditions col-sm-6">
       <div>
-        <p>Expect {{weather.[0].description}}.  Wind will be coming at you at {{speed}} miles per hour. From {{deg}}&deg</p>
+        <p >Expect {{weather.[0].description}}.  Wind will be coming at you at {{speed}} miles per hour. From {{deg}}&deg</p>
       </div>
     </div>
   </div>

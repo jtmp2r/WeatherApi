@@ -62,7 +62,7 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
       $("#zipForm").hide();
     });
   });
-
+//retrieve 3 day forecast
   $(document).on("click", "#threeDayForecast", function(){
     var cityId = $(this).parent().parent().parent().attr("id");
     console.log("cityId", cityId);
@@ -72,6 +72,18 @@ define(["jquery", "lodash", "firebase", "Register", "login", "q", "hbs", "valida
       var threeFore = threeDay.list;
       console.log("threeFore", threeFore);
       $("#forecast").html(forecastHbs({forecast : threeFore}));
+    });
+  });
+//retrieve 7 day forecast
+  $(document).on("click", "#sevenDayForecast", function(){
+    var cityId = $(this).parent().parent().parent().attr("id");
+    console.log("cityId", cityId);
+    weatherData.sevenDay(cityId)
+    .then(function(sevenDay){
+      console.log("sevenDay", sevenDay);
+      var sevenFore = sevenDay.list;
+      console.log("sevenFore", sevenFore);
+      $("#forecast").html(forecastHbs({forecast : sevenFore}));
     });
   });
 });
